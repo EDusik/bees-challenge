@@ -39,10 +39,6 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  [disabled] {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
 
   html {
     @media (max-width: 1080px) {
