@@ -6,6 +6,7 @@ import { Company } from "components/Company";
 import { ICompany } from "models/Companies";
 import { ContainerStyled } from "styles/Container/ContainerStyles";
 import { CompaniesStyled } from "./CompaniesStyled";
+import { Navbar } from "components/Navbar";
 
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 interface ICompaniesState {
@@ -49,26 +50,29 @@ export const Companies = () => {
 	}, []);
 
 	return (
-		<ContainerStyled>
-			<CompaniesStyled>
-				{!state.isLoading ? (
-					<>
-						{!state.anErrorOccurred ? (
-							<>
-								{state.companies?.map((company: ICompany) => (
-									<div key={company.id}>
-										<Company company={company} />
-									</div>
-								))}
-							</>
-						) : (
-							<Error />
-						)}
-					</>
-				) : (
-					<Loader />
-				)}
-			</CompaniesStyled>
-		</ContainerStyled>
+		<>
+			<Navbar />
+			<ContainerStyled>
+				<CompaniesStyled>
+					{!state.isLoading ? (
+						<>
+							{!state.anErrorOccurred ? (
+								<>
+									{state.companies?.map((company: ICompany) => (
+										<div key={company.id}>
+											<Company company={company} />
+										</div>
+									))}
+								</>
+							) : (
+								<Error />
+							)}
+						</>
+					) : (
+						<Loader />
+					)}
+				</CompaniesStyled>
+			</ContainerStyled>
+		</>
 	);
 };
