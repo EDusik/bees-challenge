@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useStore from "stores/useStore";
 import { FormStyled } from "./FormStyled";
+import useStore from "stores/useStore";
 
 const MIN_FULL_NAME_SIZE = 7;
 const MAX_FULL_NAME_SIZE = 32;
