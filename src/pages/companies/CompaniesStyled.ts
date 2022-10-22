@@ -6,4 +6,5 @@ export const CompaniesStyled = styled.section`
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+  min-height: calc(100vh - 146px);
 `;

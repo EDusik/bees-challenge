@@ -7,18 +7,18 @@ import { ICompany } from "models/Companies";
 import { ContainerStyled } from "styles/Container/ContainerStyles";
 import { CompaniesStyled } from "./CompaniesStyled";
 import { Navbar } from "components/Navbar";
+import useStore from "stores/useStore";
 
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 interface ICompaniesState {
 	companies: ICompany[];
-	isLoading: boolean;
 	anErrorOccurred: boolean;
 }
 
 export const Companies = () => {
+	const { setIsLoading, isLoading } = useStore();
 	const [state, setState] = useState<ICompaniesState>({
 		companies: [],
-		isLoading: true,
 		anErrorOccurred: false
 	});
 
@@ -38,10 +38,7 @@ export const Companies = () => {
 				}));
 			} finally {
 				setTimeout(() => {
-					setState((previousState: any) => ({
-						...previousState,
-						isLoading: false
-					}));
+					setIsLoading(false);
 				}, ONE_SECOND_IN_MILLISECONDS);
 			}
 		};
@@ -54,7 +51,7 @@ export const Companies = () => {
 			<Navbar />
 			<ContainerStyled>
 				<CompaniesStyled>
-					{!state.isLoading ? (
+					{!isLoading ? (
 						<>
 							{!state.anErrorOccurred ? (
 								<>
