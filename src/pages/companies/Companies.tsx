@@ -11,14 +11,12 @@ import useStore from "stores/useStore";
 
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 interface ICompaniesState {
-	companies: ICompany[];
 	anErrorOccurred: boolean;
 }
 
 export const Companies = () => {
-	const { setIsLoading, isLoading } = useStore();
+	const { setIsLoading, isLoading, companies, setCompanies } = useStore();
 	const [state, setState] = useState<ICompaniesState>({
-		companies: [],
 		anErrorOccurred: false
 	});
 
@@ -26,10 +24,7 @@ export const Companies = () => {
 		const getCompaniesList = async () => {
 			try {
 				const { data } = await getCompanies();
-				setState((previousState: any) => ({
-					...previousState,
-					companies: data
-				}));
+				setCompanies(data);
 				console.log(data);
 			} catch {
 				setState((previousState: ICompaniesState) => ({
@@ -44,7 +39,7 @@ export const Companies = () => {
 		};
 
 		getCompaniesList();
-	}, []);
+	}, [setCompanies, setIsLoading]);
 
 	return (
 		<>
@@ -55,7 +50,7 @@ export const Companies = () => {
 						<>
 							{!state.anErrorOccurred ? (
 								<>
-									{state.companies?.map((company: ICompany) => (
+									{companies?.map((company: ICompany) => (
 										<div key={company.id}>
 											<Company company={company} />
 										</div>
