@@ -1,6 +1,6 @@
 import { ICompany } from "models/Companies";
 import { CompanyStyled } from "./CompanyStyled";
-import { handleNullData } from "components/utils/data";
+import { handleNullData } from "utils/data";
 
 interface ICompanyProps {
 	company: ICompany;
