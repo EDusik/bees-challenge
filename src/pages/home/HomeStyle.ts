@@ -10,7 +10,7 @@ export const HomeStyled = styled.div`
   flex-wrap: wrap;
   align-items: center;
 
-  div.home {
+  form.home {
     min-height: 225px;
     align-items: center;
     display: grid;
