@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CompaniesStyled = styled.div`
+export const CompaniesStyled = styled.section`
   margin: 0 auto;
   display: flex;
   width: 100%;

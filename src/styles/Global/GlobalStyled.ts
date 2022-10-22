@@ -27,7 +27,7 @@ export default createGlobalStyle`
     font-family: "Work Sans", sans-serif;
     color: var(--text-primary);
     margin: 0px;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   button {
