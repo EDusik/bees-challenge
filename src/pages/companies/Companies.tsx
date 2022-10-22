@@ -1,8 +1,9 @@
-import { Company } from "components/Company";
-import { Loader } from "components/shared/Loader";
-import { ICompany } from "models/Companies";
 import { useEffect, useState } from "react";
 import { getCompanies } from "services/api";
+import { Loader } from "components/shared/Loader";
+import { Error } from "components/shared/Error";
+import { Company } from "components/Company";
+import { ICompany } from "models/Companies";
 import { ContainerStyled } from "styles/Container/ContainerStyles";
 import { CompaniesStyled } from "./CompaniesStyled";
 
@@ -54,16 +55,14 @@ export const Companies = () => {
 					<>
 						{!state.anErrorOccurred ? (
 							<>
-								{state.companies?.map((company: any) => (
-									<Company company={company} />
+								{state.companies?.map((company: ICompany) => (
+									<div key={company.id}>
+										<Company company={company} />
+									</div>
 								))}
 							</>
 						) : (
-							<div className="companies__container-error">
-								<h3>An error has occurred </h3>
-								<p>Please try again later.</p>
-								<p>🍯🐝</p>
-							</div>
+							<Error />
 						)}
 					</>
 				) : (
