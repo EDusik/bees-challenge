@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# 🐝 BEES Front-end Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BEES front-end challenge made using React.
 
-## Available Scripts
+> Vamos juntos nessa transformação!
 
-In the project directory, you can run:
+## 🎨 Design
 
-### `npm start`
+The user interface of this project was based [on this Figma](https://www.figma.com/file/uFEUiFI47Ap1wSfWaEHSnI/BEES-front-end-challenge?node-id=0%3A1 "on this Figma").
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 💻 Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This project uses these technologies:
 
-### `npm test`
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Axios](https://github.com/axios/axios)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [Vercel](https://vercel.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🔗 Endpoint [API]
 
-### `npm run build`
+- [Open Brewery DB](https://www.openbrewerydb.org/documentation)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⌨️ Commands
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```npm
+npm install
+```
 
-### `npm run eject`
+### Run Project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```npm
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- APP: [http://localhost:3000/](http://localhost:3000/ "localhost")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 👨‍💻 Solution
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 📁 Folder Structure
 
-## Learn More
+```
+├── _src
+│   ├── _components
+│   │   ├── _Example
+│   |       ├── E̶x̶a̶m̶p̶l̶e̶.s̶p̶e̶c̶.t̶s̶
+│   |       ├── Example.tsx
+│   |       ├── ExampleStyled.ts
+│   |       ├── index.ts
+│   └── models
+...
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### General Decisions:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- I used semantic commits since the beginning of the project, something I've been doing for a while;
+- I chose to use sass together with styled components (just personal preference);
+- I chose to use the TypeScript as well as type all the props and states of my components;
+- I used the svg icons provided in the Figma template;
+- I decided to use **zustand** to save the full name due to the ease of the lib;
+- I added a field called _tag_ to the company object, as well as an icon when adding a new tag;
+- I added a loader with _css animation_ and an error message if the api fails;
+
+### Critique
+
+#### Improvements:
+
+Although they are not mentioned in the challenge, I believe these would be good improvements:
+
+- Persist the modified data in some way, perhaps using localStorage;
+- Don't let unnamed users see the companies page;
+- Make the delete company and add tag actually real using an api;
+- Add unit tests on all components using **jest** and react **testing library** and **cypress** to e2e tests;
+
+#### Notes:
+
+- I hope you like the result 😅.
+
+> Developed by <a href="https://www.linkedin.com/in/eduardo-dos-santos-dusik-095100120/" target="_blank">Eduardo Dusik</a>
