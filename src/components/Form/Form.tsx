@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FormStyled } from "./FormStyled";
 import useStore from "stores/useStore";
 
+const ALPHABETICAL_REGEX = new RegExp(/^[a-zA-Z ]*$/);
 const MIN_FULL_NAME_SIZE = 7;
 const MAX_FULL_NAME_SIZE = 32;
 
@@ -38,8 +39,13 @@ export const Form = () => {
 		}));
 	};
 
+	const handleAlphabeticalChars = () => {
+		return ALPHABETICAL_REGEX.test(state.fullName);
+	};
+
 	useEffect(() => {
 		if (
+			handleAlphabeticalChars() &&
 			state.fullName.length > MIN_FULL_NAME_SIZE &&
 			state.fullName.length < MAX_FULL_NAME_SIZE &&
 			state.moreThanEighteenYearsOld === true
