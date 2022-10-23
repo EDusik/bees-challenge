@@ -1,12 +1,15 @@
 import { ICompany } from "models/Companies";
 import { CompanyStyled } from "./CompanyStyled";
 import { handleNullData } from "utils/data";
+import useStore from "stores/useStore";
 
 interface ICompanyProps {
 	company: ICompany;
 }
 
 export const Company = ({ company }: ICompanyProps) => {
+	const { companies, setCompanies } = useStore();
+
 	const handleAddress = (company: ICompany) => {
 		return (
 			<div>
@@ -38,12 +41,23 @@ export const Company = ({ company }: ICompanyProps) => {
 						{company?.phone}
 					</span>
 				)}
+
+				<span>
+					<button>
+						<img src={`${process.env.PUBLIC_URL}/images/plus.svg`} alt="Plus - Icon" />
+					</button>
+					<input type="input" id="add-more" name="add-more" placeholder="add more" />
+				</span>
 			</div>
 		);
 	};
 
 	const handleDelete = async (company: ICompany) => {
-		console.log(company);
+		companies.splice(
+			companies.findIndex(c => c === company),
+			1
+		);
+		setCompanies(companies);
 	};
 
 	return (
