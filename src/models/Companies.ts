@@ -38,4 +38,5 @@ export interface ICompany {
 	street: string;
 	updated_at: Date;
 	website_url: string;
+	tag: string;
 }

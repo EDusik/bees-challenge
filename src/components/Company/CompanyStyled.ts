@@ -9,7 +9,6 @@ export const CompanyStyled = styled.div`
   background-color: var(--white);
   border: solid 1px var(--border);
 
-
   div.company__title {
     display: flex;
     justify-content: space-between;
@@ -33,28 +32,50 @@ export const CompanyStyled = styled.div`
   p {
     font-size: 16px;
     line-height: 26px;
-
-    &:first-child {
-    margin-top: 20px;
-  }
-
-    &:last-child {
-      margin-bottom: 30px;
-    }
   }
 
   span {
-    display: inline-flex;
-    background-color: var(--primary);
-    margin: 1rem 14px 1rem 0;
-    padding: 4px 16px;
-    border-radius: 1rem;
-    font-size: 16px;
     max-width: 185px;
-
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 1rem;
+    padding: 4px 16px;
+    margin: 1rem 14px 1rem 0;
+    background-color: var(--primary);
+    
     img {
-      width: 16px;
+      align-items: center;
+      width: 18px;
       margin-right: 12px;
+    }
+
+    button {
+      display: flex;
+      width: 22px;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      transition: .2s;
+      width: 18px;
+      margin-right: 12px;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+
+    input {
+      height: 20px;
+      width: 90px;
+      padding: 0 6px;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+
+      &:disabled {
+        display: none;
+      }
     }
   }
 
