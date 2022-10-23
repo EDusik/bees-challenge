@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const ErrorStyled = styled.div`
   width: 100%;
+  min-height: calc(100vh - 146px);
   align-items: center;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
   word-break: normal;
   flex-direction: column;
 
