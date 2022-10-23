@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormStyled } from "./FormStyled";
 import useStore from "stores/useStore";
@@ -39,9 +39,13 @@ export const Form = () => {
 		}));
 	};
 
-	const handleAlphabeticalChars = () => {
+	const handleAlphabeticalChars = useCallback(() => {
 		return ALPHABETICAL_REGEX.test(state.fullName);
-	};
+	}, [state.fullName]);
+
+	useEffect(() => {
+		handleAlphabeticalChars();
+	}, [handleAlphabeticalChars]);
 
 	useEffect(() => {
 		if (
@@ -60,7 +64,7 @@ export const Form = () => {
 				isButtonDisabled: true
 			}));
 		}
-	}, [state.fullName, state.moreThanEighteenYearsOld]);
+	}, [state.fullName, state.moreThanEighteenYearsOld, handleAlphabeticalChars]);
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();

@@ -25,7 +25,6 @@ export const Companies = () => {
 			try {
 				const { data } = await getCompanies();
 				setCompanies(data);
-				console.log(data);
 			} catch {
 				setState((previousState: ICompaniesState) => ({
 					...previousState,
