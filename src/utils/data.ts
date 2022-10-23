@@ -1,3 +1,5 @@
-export const handleNullData = (data: string | undefined, children: any) => {
+import { ReactElement } from "react";
+
+export const handleNullData = (data: string | undefined, children: ReactElement) => {
 	return data !== null || undefined ? children : null;
 };
