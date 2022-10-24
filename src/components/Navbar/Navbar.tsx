@@ -14,10 +14,14 @@ export const Navbar = () => {
 		<NavbarStyled>
 			<div>
 				<button type="button" aria-label="Go Back Button" onClick={() => handleGoBack()}>
-					<img src={`${process.env.PUBLIC_URL}/images/back_arrow.svg`} alt="Go Back - Icon" />
+					<img
+						data-testid="go-back-button"
+						src={`${process.env.PUBLIC_URL}/images/back_arrow.svg`}
+						alt="Go Back - Icon"
+					/>
 					Go back
 				</button>
-				<h2>{fullName}</h2>
+				<h2 data-testid="full-name">{fullName}</h2>
 			</div>
 		</NavbarStyled>
 	);
