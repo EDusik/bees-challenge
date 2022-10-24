@@ -2,20 +2,23 @@ import styled from "styled-components";
 
 export const CompanyStyled = styled.div`
   width: 382px;
-  min-height: 300px;
+  min-height: 282px;
   display: flex;
   margin: 24px;
   padding: 30px 24px;
+  border-radius: 4px;
   background-color: var(--white);
   border: solid 1px var(--border);
 
   div.company__title {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 
     h2  {
       font-size: 20px;
       font-weight: 700;
+      margin-bottom: 22px;
     }
 
     button {
@@ -27,6 +30,10 @@ export const CompanyStyled = styled.div`
         opacity: .5;
       }
     }
+  }
+
+  div.company__address {
+    margin-bottom: 14px;
   }
 
   p {
@@ -61,7 +68,12 @@ export const CompanyStyled = styled.div`
       width: 18px;
       margin-right: 12px;
 
-      &:hover {
+      &:disabled {
+        cursor: not-allowed;
+        opacity: .6;
+      }
+
+      &:hover:enabled {
         opacity: .6;
       }
     }

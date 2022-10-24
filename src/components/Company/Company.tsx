@@ -4,6 +4,8 @@ import { ICompany } from "models/Companies";
 import { handleNullData } from "utils/data";
 import useStore from "stores/useStore";
 
+const TAG_LIMIT_CHARS = 14;
+
 interface ICompanyProps {
 	company: ICompany;
 }
@@ -21,6 +23,8 @@ export const Company = ({ company }: ICompanyProps) => {
 	});
 
 	const handleAddMore = (company: ICompany) => {
+		if (state.inputValue.length > TAG_LIMIT_CHARS) return;
+
 		setState((previousState: ICompanyState) => ({
 			...previousState,
 			edited: !state.edited
@@ -33,6 +37,10 @@ export const Company = ({ company }: ICompanyProps) => {
 		}
 	};
 
+	const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, company: ICompany) => {
+		if (event.key === "Enter") handleAddMore(company);
+	};
+
 	const handleAddMoreInput = (typedValue: string) => {
 		setState((previousState: ICompanyState) => ({
 			...previousState,
@@ -42,12 +50,12 @@ export const Company = ({ company }: ICompanyProps) => {
 
 	const handleAddress = (company: ICompany) => {
 		return (
-			<>
+			<div className="company__address">
 				<p>{company.street}</p>
 				<p>
 					{company.city}, {company.state} - {company.country}
 				</p>
-			</>
+			</div>
 		);
 	};
 
@@ -80,7 +88,12 @@ export const Company = ({ company }: ICompanyProps) => {
 
 				<span>
 					{!company.tag ? (
-						<button type="button" aria-label="Add Button" onClick={() => handleAddMore(company)}>
+						<button
+							type="button"
+							aria-label="Add Button"
+							onClick={() => handleAddMore(company)}
+							disabled={state.inputValue.length > TAG_LIMIT_CHARS}
+						>
 							{!state.edited ? (
 								<>
 									<img src={`${process.env.PUBLIC_URL}/images/plus.svg`} alt="Plus - Icon" />
@@ -108,6 +121,7 @@ export const Company = ({ company }: ICompanyProps) => {
 							placeholder="add more"
 							disabled={!state.edited}
 							onChange={event => handleAddMoreInput(event?.target.value)}
+							onKeyDown={event => handleKeyDown(event, company)}
 						/>
 					)}
 				</span>
