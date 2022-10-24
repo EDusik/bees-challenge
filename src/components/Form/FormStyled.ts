@@ -41,6 +41,7 @@ export const FormStyled = styled.div`
       margin: 0 auto;
       background-color: var(--button-enabled);
       transition: .2s;
+      border-radius: 4px;
 
       &:hover {
         opacity: 0.9;
