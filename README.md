@@ -4,6 +4,20 @@ BEES front-end challenge made using React.
 
 > Vamos juntos nessa transformação!
 
+## 🖵 Preview
+
+### Application
+
+[![Application Preview](.github/app-preview.gif "Application Preview")](.github/app-preview.gif "Application Preview")
+
+### API Error
+
+[![API Error](.github/api-error.gif "API Error")](.github/api-error.gif "API Error")
+
+### Cypress
+
+[![Cypress Preview](.github/cypress-preview.gif "Cypress Preview")](.github/cypress-preview.gif "Cypress Preview")
+
 ## 🎨 Design
 
 The user interface of this project was based [on this Figma](https://www.figma.com/file/uFEUiFI47Ap1wSfWaEHSnI/BEES-front-end-challenge?node-id=0%3A1 "on this Figma").
@@ -15,8 +29,9 @@ This project uses these technologies:
 - [React](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Zustand](https://github.com/pmndrs/zustand)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Cypress](https://www.cypress.io/)
 - [Vercel](https://vercel.com/)
 
 ### 🔗 Endpoint [API]
@@ -38,6 +53,24 @@ npm start
 ```
 
 - APP: [http://localhost:3000/](http://localhost:3000/ "localhost")
+
+### Run Unit Tests
+
+```npm
+npm run test
+```
+
+with percentage covered
+
+```npm
+npm run test -- --coverage --watchAll=false
+```
+
+### Run Cypress Tests
+
+```npm
+npx cypress open
+```
 
 ## 👨‍💻 Solution
 
@@ -63,7 +96,7 @@ npm start
 - I used the svg icons provided in the Figma template;
 - I decided to use **zustand** to save the full name due to the ease of the lib;
 - I added a field called _tag_ to the company object, as well as an icon when adding a new tag;
-- I added a loader with _css animation_ and an error message if the api fails;
+- I added a loader with _css animation_ and an error message if the API fails;
 
 ### Critique
 
