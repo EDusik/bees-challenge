@@ -95,18 +95,24 @@ npx cypress open
 - I chose to use the TypeScript as well as type all the props and states of my components;
 - I used the svg icons provided in the Figma template;
 - I decided to use **zustand** to save the full name due to the ease of the lib;
+- Also, I added a _minimum of 7 and limit of 32 characters_ in the full name field;
 - I added a field called _tag_ to the company object, as well as an icon when adding a new tag;
+- I added a minimum limit of _14_ characters in new tag;
 - I added a loader with _css animation_ and an error message if the API fails;
 
 ### Critique
 
 #### Improvements:
 
+- Dynamic Loading of data showing more as you reach the bottom of the page;
+- Implement an SVG image component to all icons;
+
 Although they are not mentioned in the challenge, I believe these would be good improvements:
 
 - Persist the modified data in some way, perhaps using localStorage;
 - Don't let unnamed users see the companies page;
-- Make the _delete_ company and _add_ tag actually real using an api;
+- Error message if the new tags are outside the stipulated limit;
+- Make the _delete_ company and _add_ tag actually real using an API;
 
 #### Notes:
 
