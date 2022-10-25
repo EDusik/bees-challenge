@@ -23,7 +23,7 @@ const mockState = {
 	companies: companies
 };
 
-describe("Navbar", () => {
+describe("Companies", () => {
 	beforeEach(() => {
 		useStore.setState(mockState);
 	});
