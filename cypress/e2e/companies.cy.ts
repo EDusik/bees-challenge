@@ -43,7 +43,7 @@ describe("Companies", () => {
 
 	describe("When an API error occurred", () => {
 		it("should show error message", () => {
-			cy.intercept("GET", "https://api.openbrewerydb.org/breweries", { statusCode: 500 });
+			cy.requestError();
 			cy.goToTheHomePage();
 			cy.fillForm();
 			cy.get('[data-cy="error-message"]').should("be.visible");

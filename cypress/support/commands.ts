@@ -16,3 +16,7 @@ Cypress.Commands.add("fillForm", () => {
 	cy.get('[data-cy="home-input-checkbox"]').click();
 	cy.get('[data-cy="enter-button"]').click();
 });
+
+Cypress.Commands.add("requestError", () => {
+	cy.intercept("GET", "https://api.openbrewerydb.org/breweries", { statusCode: 500 });
+});
