@@ -81,12 +81,14 @@ export const Form = () => {
 					type="text"
 					id="full-name"
 					name="full-name"
+					data-testid="full-name"
 					placeholder="Full name"
 					onChange={event => handleName(event.target.value)}
 				/>
 
 				<div className="home__input-checkbox">
 					<input
+						data-testid="home-input-checkbox"
 						type="checkbox"
 						id="moreThanEighteenYearsOld"
 						name="moreThanEighteenYearsOld"
@@ -95,7 +97,7 @@ export const Form = () => {
 					<label htmlFor="moreThanEighteenYearsOld">Are you older than 18 years old?</label>
 				</div>
 
-				<button type="submit" aria-label="Enter Button" disabled={state.isButtonDisabled}>
+				<button type="submit" data-testid="enter-button" aria-label="Enter Button" disabled={state.isButtonDisabled}>
 					Enter
 				</button>
 			</form>
