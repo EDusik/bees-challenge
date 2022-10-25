@@ -72,7 +72,7 @@ export const Form = () => {
 	};
 
 	return (
-		<FormStyled>
+		<FormStyled data-testid="form-component">
 			<form className="home" onSubmit={event => handleSubmit(event)}>
 				<p>Please, enter your full name below</p>
 				<p>Only alphabetical characters are accepted</p>
