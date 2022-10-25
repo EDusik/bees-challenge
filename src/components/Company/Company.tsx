@@ -32,7 +32,7 @@ export const Company = ({ company }: ICompanyProps) => {
 
 		if (state.inputValue.trim() === "") return;
 		if (state.edited === true) {
-			let objIndex = companies.findIndex(c => c === company);
+			let objIndex = companies.findIndex(c => c.id === company.id);
 			companies[objIndex].tag = state.inputValue.trim();
 		}
 	};
@@ -51,8 +51,8 @@ export const Company = ({ company }: ICompanyProps) => {
 	const handleAddress = (company: ICompany) => {
 		return (
 			<div className="company__address">
-				<p>{company.street}</p>
-				<p>
+				<p data-testid="company-street">{company.street}</p>
+				<p data-testid="company-address">
 					{company.city}, {company.state} - {company.country}
 				</p>
 			</div>
@@ -64,24 +64,36 @@ export const Company = ({ company }: ICompanyProps) => {
 			<>
 				{handleNullData(
 					company?.brewery_type,
-					<span>
-						<img src={`${process.env.PUBLIC_URL}/images/chart.svg`} alt="Chart - Icon" />
+					<span data-testid="company-brewery-type">
+						<img
+							data-testid="company-brewery-type-icon"
+							src={`${process.env.PUBLIC_URL}/images/chart.svg`}
+							alt="Chart - Icon"
+						/>
 						{company?.brewery_type}
 					</span>
 				)}
 
 				{handleNullData(
 					company?.postal_code,
-					<span>
-						<img src={`${process.env.PUBLIC_URL}/images/pin.svg`} alt="Pin - Icon" />
+					<span data-testid="company-postal-code">
+						<img
+							data-testid="company-postal-code-icon"
+							src={`${process.env.PUBLIC_URL}/images/pin.svg`}
+							alt="Pin - Icon"
+						/>
 						{company?.postal_code}
 					</span>
 				)}
 
 				{handleNullData(
 					company?.phone,
-					<span>
-						<img src={`${process.env.PUBLIC_URL}/images/phone.svg`} alt="Phone - Icon" />
+					<span data-testid="company-phone">
+						<img
+							data-testid="company-phone-icon"
+							src={`${process.env.PUBLIC_URL}/images/phone.svg`}
+							alt="Phone - Icon"
+						/>
 						{company?.phone}
 					</span>
 				)}
@@ -91,23 +103,32 @@ export const Company = ({ company }: ICompanyProps) => {
 						<button
 							type="button"
 							aria-label="Add Button"
+							data-testid="company-add-button"
 							onClick={() => handleAddMore(company)}
 							disabled={state.inputValue.length > TAG_LIMIT_CHARS}
 						>
 							{!state.edited ? (
 								<>
-									<img src={`${process.env.PUBLIC_URL}/images/plus.svg`} alt="Plus - Icon" />
+									<img
+										data-testid="company-plus-icon"
+										src={`${process.env.PUBLIC_URL}/images/plus.svg`}
+										alt="Plus - Icon"
+									/>
 								</>
 							) : (
 								<>
-									<img src={`${process.env.PUBLIC_URL}/images/check.svg`} alt="Check - Icon" />
+									<img
+										data-testid="company-check-icon"
+										src={`${process.env.PUBLIC_URL}/images/check.svg`}
+										alt="Check - Icon"
+									/>
 								</>
 							)}
 						</button>
 					) : (
 						<>
 							<img src={`${process.env.PUBLIC_URL}/images/check.svg`} alt="Check - Icon" />
-							<p>{company?.tag}</p>
+							<p data-testid="company-new-tag">{company?.tag}</p>
 						</>
 					)}
 
@@ -119,6 +140,7 @@ export const Company = ({ company }: ICompanyProps) => {
 							id="add-more"
 							name="add-more"
 							placeholder="add more"
+							data-testid="company-add-more-input"
 							disabled={!state.edited}
 							onChange={event => handleAddMoreInput(event?.target.value)}
 							onKeyDown={event => handleKeyDown(event, company)}
@@ -141,8 +163,13 @@ export const Company = ({ company }: ICompanyProps) => {
 		<CompanyStyled>
 			<div key={company.id}>
 				<div className="company__title">
-					<h2>{company.id}</h2>
-					<button type="button" aria-label="Delete Button" onClick={() => handleDelete(company)}>
+					<h2 data-testid="company-id">{company.id}</h2>
+					<button
+						type="button"
+						aria-label="Delete Button"
+						data-testid={`company-delete-${company.id}`}
+						onClick={() => handleDelete(company)}
+					>
 						<img src={`${process.env.PUBLIC_URL}/images/trash.svg`} alt="Trash - Icon" />
 					</button>
 				</div>
