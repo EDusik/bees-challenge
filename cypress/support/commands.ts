@@ -10,3 +10,9 @@ Cypress.Commands.add("goToTheHomePage", () => {
 Cypress.Commands.add("getCompanies", () => {
 	cy.intercept("GET", `${environment.baseUrl}breweries`, "fixture:mockCompanies.json");
 });
+
+Cypress.Commands.add("fillForm", () => {
+	cy.get('[data-cy="full-name-input"]').type("John Doe");
+	cy.get('[data-cy="home-input-checkbox"]').click();
+	cy.get('[data-cy="enter-button"]').click();
+});
