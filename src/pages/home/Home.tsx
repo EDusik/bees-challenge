@@ -5,7 +5,7 @@ export const Home = () => {
 	return (
 		<HomeStyled>
 			<Form />
-			<img src={`${process.env.PUBLIC_URL}/images/bee.svg`} alt="Bee Logo" />
+			<img data-testid="home-logo" src={`${process.env.PUBLIC_URL}/images/bee.svg`} alt="Bee Logo" />
 		</HomeStyled>
 	);
 };
