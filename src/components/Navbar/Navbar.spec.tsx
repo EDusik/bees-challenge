@@ -29,8 +29,8 @@ describe("Navbar", () => {
 	it("should show all correctly images and texts", () => {
 		const { getByTestId, getByText } = createNavbarComponent();
 
-		expect(getByTestId("go-back-button")).toHaveAttribute("src", "/images/back_arrow.svg");
-		expect(getByTestId("go-back-button")).toHaveAttribute("alt", "Go Back - Icon");
+		expect(getByTestId("go-back-image")).toHaveAttribute("src", "/images/back_arrow.svg");
+		expect(getByTestId("go-back-image")).toHaveAttribute("alt", "Go Back - Icon");
 		getByText(mockState.fullName);
 	});
 

@@ -50,7 +50,7 @@ describe("Company", () => {
 	it("should delete the first company", () => {
 		const { getByTestId } = createCompanyComponent(company);
 		expect(companies.length).toBe(2);
-		fireEvent.click(getByTestId(`company-delete-${company.id}`));
+		fireEvent.click(getByTestId(`company-delete-button-${company.id}`));
 		expect(companies.length).toBe(1);
 	});
 

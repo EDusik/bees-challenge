@@ -30,7 +30,7 @@ describe("Form", () => {
 			const enterButton = getByText("Enter");
 			expect(enterButton).toBeDisabled();
 
-			fireEvent.change(getByTestId("full-name"), { target: { value: "John Doe" } });
+			fireEvent.change(getByTestId("full-name-input"), { target: { value: "John Doe" } });
 			expect(enterButton).toBeDisabled();
 
 			await fireEvent.click(getByTestId("home-input-checkbox"));
