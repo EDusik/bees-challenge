@@ -15,6 +15,7 @@ This project uses these technologies:
 - [React](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Zustand](https://github.com/pmndrs/zustand)
 - [Vercel](https://vercel.com/)
 
@@ -46,7 +47,7 @@ npm start
 ├── _src
 │   ├── _components
 │   │   ├── _Example
-│   |       ├── E̶x̶a̶m̶p̶l̶e̶.s̶p̶e̶c̶.t̶s̶
+│   |       ├── Example.spec.tsx
 │   |       ├── Example.tsx
 │   |       ├── ExampleStyled.ts
 │   |       ├── index.ts
@@ -72,8 +73,7 @@ Although they are not mentioned in the challenge, I believe these would be good 
 
 - Persist the modified data in some way, perhaps using localStorage;
 - Don't let unnamed users see the companies page;
-- Make the delete company and add tag actually real using an api;
-- Add unit tests on all components using **jest** and react **testing library** and **cypress** to e2e tests;
+- Make the _delete_ company and _add_ tag actually real using an api;
 
 #### Notes:
 
