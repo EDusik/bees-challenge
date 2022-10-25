@@ -47,10 +47,40 @@ describe("Company", () => {
 		expect(getByTestId("company-phone")).toHaveTextContent(company.phone);
 	});
 
-	it("should delete the first company", async () => {
+	it("should delete the first company", () => {
 		const { getByTestId } = createCompanyComponent(company);
 		expect(companies.length).toBe(2);
 		fireEvent.click(getByTestId(`company-delete-${company.id}`));
 		expect(companies.length).toBe(1);
+	});
+
+	describe("When user click enter", () => {
+		it("should add a new tag", async () => {
+			const { getByTestId } = createCompanyComponent(company);
+
+			const newTag = "new tag";
+			await fireEvent.click(getByTestId("company-add-button"));
+			const input = getByTestId("company-add-more-input");
+
+			await fireEvent.change(input, { target: { value: newTag } });
+			await fireEvent.keyDown(input, { key: "Enter", code: 13, charCode: 13 });
+			expect(companies[0].tag).toBe(newTag);
+		});
+	});
+
+	describe("When user click the company add button", () => {
+		it("should add a new tag", async () => {
+			const { getByTestId } = createCompanyComponent(company);
+
+			const newTag = "new tag";
+			const addMoreButton = getByTestId("company-add-button");
+
+			await fireEvent.click(addMoreButton);
+			const input = getByTestId("company-add-more-input");
+
+			await fireEvent.change(input, { target: { value: newTag } });
+			await fireEvent.click(addMoreButton);
+			expect(companies[0].tag).toBe(newTag);
+		});
 	});
 });
