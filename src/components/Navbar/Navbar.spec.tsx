@@ -1,11 +1,11 @@
-import { render, fireEvent } from "@testing-library/react";
 import { Navbar } from "./Navbar";
+import { render, fireEvent } from "@testing-library/react";
 import useStore from "stores/useStore";
 import "@testing-library/jest-dom";
 
 const mockedUsedNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
-	...(jest.requireActual("react-router-dom") as any),
+	...jest.requireActual("react-router-dom"),
 	useNavigate: () => mockedUsedNavigate
 }));
 
