@@ -13,15 +13,17 @@ export const Navbar = () => {
 	return (
 		<NavbarStyled>
 			<div>
-				<button type="button" aria-label="Go Back Button" onClick={() => handleGoBack()}>
+				<button type="button" data-cy="go-back-button" aria-label="Go Back Button" onClick={() => handleGoBack()}>
 					<img
-						data-testid="go-back-button"
+						data-testid="go-back-image"
 						src={`${process.env.PUBLIC_URL}/images/back_arrow.svg`}
 						alt="Go Back - Icon"
 					/>
 					Go back
 				</button>
-				<h2 data-testid="full-name">{fullName}</h2>
+				<h2 data-testid="full-name" data-cy="full-name">
+					{fullName}
+				</h2>
 			</div>
 		</NavbarStyled>
 	);

@@ -72,16 +72,17 @@ export const Form = () => {
 	};
 
 	return (
-		<FormStyled data-testid="form-component">
+		<FormStyled data-testid="form-component" data-cy="form-component">
 			<form className="home" onSubmit={event => handleSubmit(event)}>
 				<p>Please, enter your full name below</p>
 				<p>Only alphabetical characters are accepted</p>
 				<input
+					data-testid="full-name-input"
+					data-cy="full-name-input"
 					className="home__input-name"
 					type="text"
-					id="full-name"
-					name="full-name"
-					data-testid="full-name"
+					id="full-name-input"
+					name="full-name-input"
 					placeholder="Full name"
 					onChange={event => handleName(event.target.value)}
 				/>
@@ -89,6 +90,7 @@ export const Form = () => {
 				<div className="home__input-checkbox">
 					<input
 						data-testid="home-input-checkbox"
+						data-cy="home-input-checkbox"
 						type="checkbox"
 						id="moreThanEighteenYearsOld"
 						name="moreThanEighteenYearsOld"
@@ -97,7 +99,13 @@ export const Form = () => {
 					<label htmlFor="moreThanEighteenYearsOld">Are you older than 18 years old?</label>
 				</div>
 
-				<button type="submit" data-testid="enter-button" aria-label="Enter Button" disabled={state.isButtonDisabled}>
+				<button
+					type="submit"
+					data-testid="enter-button"
+					data-cy="enter-button"
+					aria-label="Enter Button"
+					disabled={state.isButtonDisabled}
+				>
 					Enter
 				</button>
 			</form>

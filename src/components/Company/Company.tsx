@@ -104,6 +104,7 @@ export const Company = ({ company }: ICompanyProps) => {
 							type="button"
 							aria-label="Add Button"
 							data-testid="company-add-button"
+							data-cy={`company-add-button-${company.id}`}
 							onClick={() => handleAddMore(company)}
 							disabled={state.inputValue.length > TAG_LIMIT_CHARS}
 						>
@@ -141,6 +142,7 @@ export const Company = ({ company }: ICompanyProps) => {
 							name="add-more"
 							placeholder="add more"
 							data-testid="company-add-more-input"
+							data-cy={`company-add-more-input-${company.id}`}
 							disabled={!state.edited}
 							onChange={event => handleAddMoreInput(event?.target.value)}
 							onKeyDown={event => handleKeyDown(event, company)}
@@ -160,14 +162,15 @@ export const Company = ({ company }: ICompanyProps) => {
 	};
 
 	return (
-		<CompanyStyled>
-			<div key={company.id}>
+		<CompanyStyled className="company">
+			<div data-cy={`company-${company.id}`} key={company.id}>
 				<div className="company__title">
 					<h2 data-testid="company-id">{company.id}</h2>
 					<button
 						type="button"
 						aria-label="Delete Button"
-						data-testid={`company-delete-${company.id}`}
+						data-testid={`company-delete-button-${company.id}`}
+						data-cy={`company-delete-button-${company.id}`}
 						onClick={() => handleDelete(company)}
 					>
 						<img src={`${process.env.PUBLIC_URL}/images/trash.svg`} alt="Trash - Icon" />
